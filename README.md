@@ -4,7 +4,11 @@ A lightweight Linktree-style public hub for Moral Together projects, websites an
 
 ## Live site
 
-After GitHub Pages deploys, the site should be available at:
+```text
+https://welcome.moraltogether.com
+```
+
+GitHub Pages fallback:
 
 ```text
 https://moral-together.github.io/welcome/
@@ -31,6 +35,7 @@ Replace `href="#"` in `index.html` with final project URLs when they are ready.
 index.html
 styles.css
 script.js
+CNAME
 .nojekyll
 ```
 
