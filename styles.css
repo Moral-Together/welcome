@@ -164,9 +164,13 @@ body[dir="rtl"] {
 
 .brand-logo {
   display: block;
-  width: min(100%, 380px);
+  width: auto;
+  max-width: 100%;
   height: auto;
-  margin: 0 auto 18px;
+  max-height: 88px;
+  margin-block: 0 18px;
+  margin-inline: auto;
+  object-fit: contain;
 }
 
 .eyebrow {
@@ -356,17 +360,9 @@ body[dir="rtl"] .project-link:focus-visible .arrow {
     padding-bottom: 20px;
   }
 
-  .brand-mark {
-    width: 70px;
-    height: 70px;
-    border-radius: 23px;
-  }
-
-  .brand-mark span {
-    width: 53px;
-    height: 53px;
-    border-radius: 18px;
-    font-size: 19px;
+  .brand-logo {
+    max-height: 64px;
+    margin-bottom: 14px;
   }
 
   .language-switcher {
