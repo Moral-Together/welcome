@@ -162,29 +162,11 @@ body[dir="rtl"] {
   padding: 4px 6px 26px;
 }
 
-.brand-mark {
-  width: 82px;
-  height: 82px;
-  display: grid;
-  place-items: center;
+.brand-logo {
+  display: block;
+  width: min(100%, 380px);
+  height: auto;
   margin: 0 auto 18px;
-  border-radius: 28px;
-  background: conic-gradient(from 215deg, var(--violet), var(--blue), var(--green), var(--sun), var(--orange), var(--pink), var(--violet));
-  box-shadow: rgba(109, 93, 252, 0.30) 0 26px 42px -24px;
-  color: #fff;
-}
-
-.brand-mark span {
-  display: grid;
-  place-items: center;
-  width: 62px;
-  height: 62px;
-  border-radius: 21px;
-  background: rgba(16, 32, 51, 0.88);
-  font-family: 'Source Code Pro', ui-monospace, monospace;
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -1px;
 }
 
 .eyebrow {
