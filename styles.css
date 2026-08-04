@@ -159,7 +159,7 @@ body[dir="rtl"] {
 
 .hero {
   text-align: center;
-  padding: 4px 6px 26px;
+  padding: 4px 6px 20px;
 }
 
 .brand-logo {
@@ -168,41 +168,9 @@ body[dir="rtl"] {
   max-width: 100%;
   height: auto;
   max-height: 88px;
-  margin-block: 0 18px;
+  margin-block: 0;
   margin-inline: auto;
   object-fit: contain;
-}
-
-.eyebrow {
-  margin: 0 0 8px;
-  color: var(--violet);
-  font-family: 'Source Code Pro', ui-monospace, monospace;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-body[dir="rtl"] .eyebrow {
-  letter-spacing: 0.04em;
-}
-
-h1 {
-  margin: 0;
-  color: var(--text);
-  font-size: clamp(34px, 9vw, 54px);
-  font-weight: 300;
-  line-height: 1.02;
-  letter-spacing: -1.25px;
-}
-
-.subtitle {
-  max-width: 430px;
-  margin: 16px auto 0;
-  color: var(--muted);
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 1.45;
 }
 
 .links {
@@ -317,12 +285,11 @@ h1 {
   }
 
   .hero {
-    padding-bottom: 20px;
+    padding-bottom: 16px;
   }
 
   .brand-logo {
     max-height: 64px;
-    margin-bottom: 14px;
   }
 
   .language-switcher {
