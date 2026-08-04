@@ -17,7 +17,6 @@ const translations = {
     project5Desc: 'Websites, automations and tools portfolio',
     project6Title: 'Projects Archive',
     project6Desc: 'Past work and reusable references',
-    note: 'Replace the placeholder links with final project URLs as they become available.',
     footer: '© 2026 Moral Together. Built as a lightweight public projects hub.'
   },
   he: {
@@ -38,7 +37,6 @@ const translations = {
     project5Desc: 'פורטפוליו אתרים, אוטומציות וכלים',
     project6Title: 'Projects Archive',
     project6Desc: 'עבודות עבר ורפרנסים לשימוש חוזר',
-    note: 'אפשר להחליף את קישורי הדמה בכתובות הפרויקטים הסופיות כאשר הן יהיו מוכנות.',
     footer: '© 2026 Moral Together. נבנה כמרכז פרויקטים ציבורי וקל משקל.'
   },
   ru: {
@@ -59,7 +57,6 @@ const translations = {
     project5Desc: 'Портфолио сайтов, автоматизаций и инструментов',
     project6Title: 'Projects Archive',
     project6Desc: 'Прошлые работы и reusable references',
-    note: 'Когда будут финальные URL проектов, placeholder-ссылки можно заменить на настоящие.',
     footer: '© 2026 Moral Together. Лёгкий публичный хаб проектов.'
   }
 };

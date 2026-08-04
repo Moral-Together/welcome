@@ -168,9 +168,18 @@ body[dir="rtl"] {
   max-width: 100%;
   height: auto;
   max-height: 88px;
-  margin-block: 0;
+  margin-block: 0 18px;
   margin-inline: auto;
   object-fit: contain;
+}
+
+h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(34px, 9vw, 54px);
+  font-weight: 300;
+  line-height: 1.02;
+  letter-spacing: -1.25px;
 }
 
 .links {
@@ -225,34 +234,6 @@ body[dir="rtl"] {
   max-height: 100%;
   object-fit: contain;
   border-radius: 14px;
-}
-
-.note {
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  margin-top: 18px;
-  padding: 13px 14px;
-  border: 1px solid rgba(21, 190, 83, 0.26);
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(21, 190, 83, 0.11), rgba(43, 145, 223, 0.08));
-  color: #108c3d;
-}
-
-.status-dot {
-  flex: 0 0 auto;
-  width: 9px;
-  height: 9px;
-  margin-top: 8px;
-  border-radius: 99px;
-  background: var(--green);
-  box-shadow: 0 0 0 5px rgba(21, 190, 83, 0.14);
-}
-
-.note p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.35;
 }
 
 .footer {

@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Code+Pro:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
   <style>
     .links {
       display: grid !important;
@@ -48,7 +48,7 @@
     <div class="gradient-orb orb-two"></div>
     <div class="gradient-orb orb-three"></div>
 
-    <main class="profile-card" aria-label="Moral Together projects">
+    <main class="profile-card" aria-labelledby="page-title">
       <nav class="language-switcher" aria-label="Language switcher">
         <button class="lang-btn active" type="button" data-lang="en">EN</button>
         <button class="lang-btn" type="button" data-lang="he">עברית</button>
@@ -61,6 +61,7 @@
           src="MoralTogetherLogo.png"
           alt="Moral Together — Connecting for Goodwill"
         />
+        <h1 id="page-title" data-i18n="title">Our projects</h1>
       </section>
 
       <section class="links" aria-label="Project links">
@@ -87,13 +88,6 @@
         <a class="project-link tone-sun" href="#" aria-label="Open Internal projects archive">
           <img class="project-logo" src="logos/projects-archive.svg" alt="" width="120" height="120" />
         </a>
-      </section>
-
-      <section class="note" aria-label="Information note">
-        <span class="status-dot"></span>
-        <p data-i18n="note">
-          Replace the placeholder links with final project URLs as they become available.
-        </p>
       </section>
     </main>
 
