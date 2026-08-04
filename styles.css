@@ -288,7 +288,7 @@ body[dir="rtl"] h1 {
   justify-content: center;
   gap: 28px;
   padding: 24px;
-  background: #0a0a0a;
+  background: #ffffff;
   transition: opacity 420ms ease, visibility 420ms ease;
 }
 
@@ -310,7 +310,7 @@ body[dir="rtl"] h1 {
   height: 6px;
   overflow: hidden;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(16, 32, 51, 0.1);
 }
 
 .splash-bar-fill {
