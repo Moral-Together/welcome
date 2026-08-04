@@ -126,6 +126,8 @@ const saved = localStorage.getItem('moralTogetherLang');
 applyLanguage(saved && translations[saved] ? saved : 'en');
 
 function finishSplash() {
+  document.body.classList.add('content-ready');
+
   if (!splash) {
     return;
   }
