@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Code+Pro:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=8" />
   <style>
     .links {
       display: grid !important;
@@ -43,6 +43,13 @@
   </style>
 </head>
 <body>
+  <div class="splash" id="splash" aria-hidden="true">
+    <img class="splash-logo" src="MoralTogetherLogo.png" alt="" />
+    <div class="splash-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <span class="splash-bar-fill"></span>
+    </div>
+  </div>
+
   <div class="page-shell">
     <div class="color-ribbon" aria-hidden="true"></div>
     <div class="gradient-orb orb-one"></div>
@@ -51,6 +58,7 @@
 
     <main class="profile-card" aria-labelledby="page-title">
       <nav class="language-switcher" aria-label="Language switcher">
+        <span class="lang-slider" aria-hidden="true"></span>
         <button class="lang-btn active" type="button" data-lang="en">EN</button>
         <button class="lang-btn" type="button" data-lang="he">עברית</button>
         <button class="lang-btn" type="button" data-lang="ru">RU</button>

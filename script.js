@@ -63,6 +63,27 @@ const translations = {
 
 const buttons = document.querySelectorAll('.lang-btn');
 const i18nNodes = document.querySelectorAll('[data-i18n]');
+const langSlider = document.querySelector('.lang-slider');
+const splash = document.getElementById('splash');
+const splashBar = splash ? splash.querySelector('.splash-bar') : null;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let sliderReady = false;
+
+function moveLangSlider(activeButton) {
+  if (!langSlider || !activeButton) {
+    return;
+  }
+
+  langSlider.style.width = `${activeButton.offsetWidth}px`;
+  langSlider.style.transform = `translateX(${activeButton.offsetLeft}px)`;
+
+  if (!sliderReady) {
+    requestAnimationFrame(() => {
+      langSlider.classList.add('is-ready');
+      sliderReady = true;
+    });
+  }
+}
 
 function applyLanguage(lang) {
   const dict = translations[lang] || translations.en;
@@ -78,12 +99,17 @@ function applyLanguage(lang) {
     }
   });
 
+  let activeButton = null;
   buttons.forEach((button) => {
     const active = button.dataset.lang === lang;
     button.classList.toggle('active', active);
     button.setAttribute('aria-pressed', String(active));
+    if (active) {
+      activeButton = button;
+    }
   });
 
+  moveLangSlider(activeButton);
   localStorage.setItem('moralTogetherLang', lang);
 }
 
@@ -91,5 +117,42 @@ buttons.forEach((button) => {
   button.addEventListener('click', () => applyLanguage(button.dataset.lang));
 });
 
+window.addEventListener('resize', () => {
+  const activeButton = document.querySelector('.lang-btn.active');
+  moveLangSlider(activeButton);
+});
+
 const saved = localStorage.getItem('moralTogetherLang');
 applyLanguage(saved && translations[saved] ? saved : 'en');
+
+function finishSplash() {
+  if (!splash) {
+    return;
+  }
+
+  splash.classList.add('is-done');
+  splash.setAttribute('aria-hidden', 'true');
+  if (splashBar) {
+    splashBar.setAttribute('aria-valuenow', '100');
+  }
+}
+
+function startSplash() {
+  if (!splash) {
+    return;
+  }
+
+  if (prefersReducedMotion) {
+    finishSplash();
+    return;
+  }
+
+  splash.classList.add('is-loading');
+  if (splashBar) {
+    splashBar.setAttribute('aria-valuenow', '100');
+  }
+
+  window.setTimeout(finishSplash, 1650);
+}
+
+startSplash();
