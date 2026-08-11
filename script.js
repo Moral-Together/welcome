@@ -11,12 +11,8 @@ const translations = {
     project2Desc: 'Positive broadcasting radio',
     project3Title: 'Zuzim.cash',
     project3Desc: 'Financial and donation platform',
-    project4Title: 'Community Campaign',
-    project4Desc: 'Public initiative / campaign hub',
-    project5Title: 'Digital Services Showcase',
-    project5Desc: 'Websites, automations and tools portfolio',
-    project6Title: 'Projects Archive',
-    project6Desc: 'Past work and reusable references',
+    project4Title: 'GodsWill Ambassador',
+    project4Desc: 'Ambassador program',
     footer: '© 2026 Moral Together. Built as a lightweight public projects hub.'
   },
   he: {
@@ -31,12 +27,8 @@ const translations = {
     project2Desc: 'רדיו שמשדר חיובי',
     project3Title: 'Zuzim.cash',
     project3Desc: 'פלטפורמה פיננסית ותרומות',
-    project4Title: 'Community Campaign',
-    project4Desc: 'מרכז ליוזמה ציבורית / קמפיין',
-    project5Title: 'Digital Services Showcase',
-    project5Desc: 'פורטפוליו אתרים, אוטומציות וכלים',
-    project6Title: 'Projects Archive',
-    project6Desc: 'עבודות עבר ורפרנסים לשימוש חוזר',
+    project4Title: 'GodsWill Ambassador',
+    project4Desc: 'תוכנית שגרירים',
     footer: '© 2026 Moral Together. נבנה כמרכז פרויקטים ציבורי וקל משקל.'
   },
   ru: {
@@ -51,12 +43,8 @@ const translations = {
     project2Desc: 'Радио позитивного вещания',
     project3Title: 'Zuzim.cash',
     project3Desc: 'Финансовая платформа и пожертвования',
-    project4Title: 'Community Campaign',
-    project4Desc: 'Хаб публичной инициативы / кампании',
-    project5Title: 'Digital Services Showcase',
-    project5Desc: 'Портфолио сайтов, автоматизаций и инструментов',
-    project6Title: 'Projects Archive',
-    project6Desc: 'Прошлые работы и reusable references',
+    project4Title: 'GodsWill Ambassador',
+    project4Desc: 'Амбассадорская программа',
     footer: '© 2026 Moral Together. Лёгкий публичный хаб проектов.'
   }
 };

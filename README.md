@@ -19,13 +19,12 @@ https://moral-together.github.io/welcome/
 - Colorful Linktree-style portfolio hub for Moral Together.
 - Language switcher with English as default, plus Hebrew and Russian.
 - Mobile-first responsive layout.
-- Six visual placeholder project buttons:
+- Splash screen on load.
+- Four project tiles:
   - Moral for Good
+  - M1 Radio
   - Zuzim.cash
-  - Partner Landing Page
-  - Community Campaign
-  - Digital Services Showcase
-  - Projects Archive
+  - GodsWill Ambassador
 
 Replace `href="#"` in `index.html` with final project URLs when they are ready.
 
@@ -35,6 +34,8 @@ Replace `href="#"` in `index.html` with final project URLs when they are ready.
 index.html
 styles.css
 script.js
+MoralTogetherLogo.png
+logos/
 CNAME
 .nojekyll
 ```
