@@ -13,7 +13,7 @@ const translations = {
     project3Desc: 'Financial and donation platform',
     project4Title: 'GodsWill Ambassador',
     project4Desc: 'Ambassador program',
-    footer: '© 2026 Moral Together. Built as a lightweight public projects hub.'
+    footer: '© 2026 Moral Together.'
   },
   he: {
     dir: 'rtl',
@@ -29,7 +29,7 @@ const translations = {
     project3Desc: 'פלטפורמה פיננסית ותרומות',
     project4Title: 'GodsWill Ambassador',
     project4Desc: 'תוכנית שגרירים',
-    footer: '© 2026 Moral Together. נבנה כמרכז פרויקטים ציבורי וקל משקל.'
+    footer: '© 2026 Moral Together.'
   },
   ru: {
     dir: 'ltr',
@@ -45,7 +45,7 @@ const translations = {
     project3Desc: 'Финансовая платформа и пожертвования',
     project4Title: 'GodsWill Ambassador',
     project4Desc: 'Амбассадорская программа',
-    footer: '© 2026 Moral Together. Лёгкий публичный хаб проектов.'
+    footer: '© 2026 Moral Together.'
   }
 };
 

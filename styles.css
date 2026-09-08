@@ -225,6 +225,15 @@ body[dir="rtl"] h1 {
   direction: ltr;
 }
 
+.project-link.is-featured {
+  grid-column: 2 / 3;
+  grid-row: 1;
+}
+
+.links .project-link:not(.is-featured) {
+  grid-row: 2;
+}
+
 body.content-ready .project-link {
   animation: project-reveal 480ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
