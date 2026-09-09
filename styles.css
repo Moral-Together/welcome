@@ -261,15 +261,12 @@ body[dir="rtl"] h1 {
 }
 
 .socstrip {
-  --soc-size: 30px;
-  /* the icons scale with the card width, evenly spread across the strip */
-  --soc-size: clamp(22px, 12.5cqw, 44px);
+  --soc-size: 40px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   gap: 6px;
   padding: 10px 12px;
-  container-type: inline-size;
   border-top: 1px solid rgba(229, 237, 245, 0.92);
   background: rgba(247, 251, 255, 0.7);
 }
