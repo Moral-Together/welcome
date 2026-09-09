@@ -20,11 +20,15 @@ https://moral-together.github.io/welcome/
 - Language switcher with English as default, plus Hebrew and Russian.
 - Mobile-first responsive layout.
 - Splash screen on load.
-- Four project tiles:
+- Two featured projects at the top, each with its own social strip inside the tile:
+  - M1 Radio (m1-radio.com)
+  - Stage of Stars (stageofstars.com)
+- Three project tiles below, in one row:
   - Moral for Good
-  - M1 Radio
   - Zuzim.cash
-  - GodsWill Ambassador
+  - Trust Mom
+- On phones the two featured projects stack full width; the three tiles stay in one row.
+- Social icons come from Font Awesome brands (CDN).
 
 Replace `href="#"` in `index.html` with final project URLs when they are ready.
 

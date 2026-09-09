@@ -11,8 +11,8 @@ const translations = {
     project2Desc: 'Positive broadcasting radio',
     project3Title: 'Zuzim.cash',
     project3Desc: 'Financial and donation platform',
-    project4Title: 'GodsWill Ambassador',
-    project4Desc: 'Ambassador program',
+    project4Title: 'Trust Mom',
+    project4Desc: 'Positive Way Only',
     footer: '© 2026 Moral Together.'
   },
   he: {
@@ -27,8 +27,8 @@ const translations = {
     project2Desc: 'רדיו שמשדר חיובי',
     project3Title: 'Zuzim.cash',
     project3Desc: 'פלטפורמה פיננסית ותרומות',
-    project4Title: 'GodsWill Ambassador',
-    project4Desc: 'תוכנית שגרירים',
+    project4Title: 'Trust Mom',
+    project4Desc: 'Positive Way Only',
     footer: '© 2026 Moral Together.'
   },
   ru: {
@@ -43,8 +43,8 @@ const translations = {
     project2Desc: 'Радио позитивного вещания',
     project3Title: 'Zuzim.cash',
     project3Desc: 'Финансовая платформа и пожертвования',
-    project4Title: 'GodsWill Ambassador',
-    project4Desc: 'Амбассадорская программа',
+    project4Title: 'Trust Mom',
+    project4Desc: 'Positive Way Only',
     footer: '© 2026 Moral Together.'
   }
 };

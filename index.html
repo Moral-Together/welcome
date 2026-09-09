@@ -12,42 +12,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Code+Pro:wght@500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=12" />
-  <style>
-    .links {
-      display: grid !important;
-      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-      gap: 12px;
-      width: 100%;
-      direction: ltr;
-    }
-    .links .project-link {
-      min-width: 0;
-      width: 100%;
-      aspect-ratio: 1;
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-      padding: 10px;
-      overflow: hidden;
-      box-sizing: border-box;
-    }
-    .links .project-link.is-featured {
-      grid-column: 2 / 3;
-      grid-row: 1;
-    }
-    .links .project-link:not(.is-featured) {
-      grid-row: 2;
-    }
-    .links .project-logo {
-      display: block;
-      width: 100%;
-      height: 100%;
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-    }
-  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css" />
+  <link rel="stylesheet" href="styles.css?v=13" />
 </head>
 <body>
   <div class="splash" id="splash" aria-hidden="true">
@@ -80,12 +47,36 @@
         <h1 id="page-title" data-i18n="title">Our projects</h1>
       </section>
 
-      <section class="links" aria-label="Project links">
-        <a class="project-link tone-pink is-featured" href="#" aria-label="Open M1 Radio">
-          <img class="project-logo" src="logos/m1-radio-logo.png" alt="" width="120" height="120" />
-        </a>
+      <!-- Featured projects: logo tile + social strip inside the same card -->
+      <section class="featured" aria-label="Featured projects">
+        <div class="feat">
+          <a class="project-link tone-pink" href="https://m1-radio.com" aria-label="Open M1 Radio">
+            <img class="project-logo" src="logos/m1-radio-logo.png" alt="" width="120" height="120" />
+          </a>
+          <!-- TODO: replace href="#" with the real M1 Radio social links -->
+          <div class="socstrip">
+            <a class="soc yt" href="#" aria-label="M1 Radio on YouTube" target="_blank" rel="noopener"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+            <a class="soc tt" href="#" aria-label="M1 Radio on TikTok" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+            <a class="soc ig" href="#" aria-label="M1 Radio on Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a class="soc fb" href="#" aria-label="M1 Radio on Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          </div>
+        </div>
 
-        <a class="project-link tone-violet" href="#" aria-label="Open Moral for Good">
+        <div class="feat">
+          <a class="project-link tone-sun" href="https://stageofstars.com" aria-label="Open Stage of Stars">
+            <img class="project-logo" src="logos/stage-of-stars.png" alt="" width="120" height="120" />
+          </a>
+          <div class="socstrip">
+            <a class="soc yt" href="https://www.youtube.com/@StageofStarsOfficial" aria-label="Stage of Stars on YouTube" target="_blank" rel="noopener"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+            <a class="soc tt" href="https://www.tiktok.com/@stageofstarsisrael" aria-label="Stage of Stars on TikTok" target="_blank" rel="noopener"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+            <a class="soc ig" href="https://www.instagram.com/stageofstarsisrael" aria-label="Stage of Stars on Instagram" target="_blank" rel="noopener"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a class="soc fb" href="https://www.facebook.com/profile.php?id=61592269746522" aria-label="Stage of Stars on Facebook" target="_blank" rel="noopener"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="links" aria-label="Project links">
+        <a class="project-link tone-blue" href="#" aria-label="Open Moral for Good">
           <img class="project-logo" src="logos/moral-for-good.png" alt="" width="120" height="120" />
         </a>
 
@@ -93,8 +84,8 @@
           <img class="project-logo" src="logos/zuzim-cash-logo.png" alt="" width="120" height="120" />
         </a>
 
-        <a class="project-link tone-sun" href="#" aria-label="Open GodsWill Ambassador">
-          <img class="project-logo" src="logos/godswill-ambassador.png" alt="" width="120" height="120" />
+        <a class="project-link tone-pink" href="#" aria-label="Open Trust Mom">
+          <img class="project-logo" src="logos/trust-mom.png" alt="" width="120" height="120" />
         </a>
       </section>
     </main>
