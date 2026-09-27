@@ -20,6 +20,7 @@ https://moral-together.github.io/welcome/
 - Language switcher: Hebrew, English, Russian. Opens in the language picked earlier by hand, else the browser language if it is one of the three, else Hebrew.
 - Short opening splash (about a second), then the tiles fade in.
 - Mobile-first responsive layout: one column on phones and small windows (up to 640px), two columns above.
+- The Moral Together logo at the top links to moraltogether.com; on hover or keyboard focus a rainbow border draws itself round it from the top and bottom and a soft gradient fades in behind.
 - Every project is a tile with its logo; below the logo either a social strip or a short description from the brief.
 - Projects without a site yet are greyed out with a "Coming soon" badge (`.feat.is-soon`); give the tile a link and drop the class when the site is ready.
 - Social icons are inline SVG (Font Awesome Free brand icons, CC BY 4.0) — no icon font to download.

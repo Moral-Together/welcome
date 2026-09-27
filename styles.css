@@ -220,14 +220,91 @@ body {
   padding: 4px 6px 26px;
 }
 
+/* The header logo links to the main site. On hover or keyboard focus a rainbow border draws
+   itself round it (four strokes, from the top centre and the bottom centre, meeting at the middle
+   of each side) while a soft brand gradient fades in behind. The sweep is an animatable custom
+   property driving a conic mask. */
+@property --logo-sweep {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.brand-link {
+  position: relative;
+  isolation: isolate;
+  display: inline-block;
+  max-width: 100%;
+  margin-block: 0 18px;
+  padding: 12px 20px;
+  border-radius: 22px;
+}
+
+/* soft gradient behind the logo */
+.brand-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(120deg,
+    rgba(109, 93, 252, 0.06), rgba(43, 145, 223, 0.05) 30%,
+    rgba(21, 190, 83, 0.045) 55%, rgba(255, 197, 61, 0.07) 78%, rgba(234, 34, 97, 0.055));
+  opacity: 0;
+  transition: opacity 350ms ease;
+}
+
+/* the border: a rainbow ring revealed by a conic mask growing both ways from the top and from the bottom */
+.brand-link::after {
+  --logo-sweep: 0deg;
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: inherit;
+  background: conic-gradient(from 0deg, #6d5dfc, #2b91df, #15be53, #ffc53d, #ff9b3d, #ea2261, #6d5dfc) border-box;
+  /* layers composite bottom-up: the whole box, minus its inside = the ring, kept only where the sweep has reached */
+  mask:
+    conic-gradient(#000 calc(var(--logo-sweep) / 4),
+      transparent 0 calc(180deg - var(--logo-sweep) / 4),
+      #000 0 calc(180deg + var(--logo-sweep) / 4),
+      transparent 0 calc(360deg - var(--logo-sweep) / 4),
+      #000 0) border-box intersect,
+    linear-gradient(#000 0 0) padding-box exclude,
+    linear-gradient(#000 0 0) border-box;
+  pointer-events: none;
+  /* At rest the mask leaves faint anti-aliasing hairlines on the rounded corners, so the layer is
+     hidden outright; it is switched off only once the border has finished un-drawing. */
+  opacity: 0;
+  /* the sweep is by angle, so on this wide box the strokes start slowly along the long edges and
+     speed up towards the corners; an ease-out curve evens that out */
+  transition: --logo-sweep 450ms cubic-bezier(0.3, 0.7, 0.4, 1), opacity 0s linear 450ms;
+}
+
+.brand-link:hover::before,
+.brand-link:focus-visible::before {
+  opacity: 1;
+}
+
+.brand-link:hover::after,
+.brand-link:focus-visible::after {
+  --logo-sweep: 360deg;
+  opacity: 1;
+  transition: --logo-sweep 450ms cubic-bezier(0.3, 0.7, 0.4, 1), opacity 0s;
+}
+
+/* the drawn border already shows keyboard focus */
+.brand-link:focus-visible {
+  outline-offset: 4px;
+}
+
 .brand-logo {
   display: block;
   width: auto;
   max-width: 100%;
   height: auto;
   max-height: 88px;
-  margin-block: 0 18px;
-  margin-inline: auto;
+  margin: 0 auto;
   object-fit: contain;
 }
 
@@ -687,6 +764,11 @@ main:focus-visible {
   }
 
   .lang-slider {
+    transition: none;
+  }
+
+  .brand-link::before,
+  .brand-link::after {
     transition: none;
   }
 
