@@ -1,7 +1,7 @@
 const translations = {
   en: {
     dir: 'ltr',
-    titleTag: 'Moral Together — Projects Hub',
+    titleTag: 'Moral Together\u00A0— Projects Hub',
     eyebrow: 'Moral Together',
     title: 'Our projects',
     subtitle: 'A colorful gateway to selected projects, digital platforms and public initiatives created around Moral Together.',
@@ -13,11 +13,17 @@ const translations = {
     project3Desc: 'Financial and donation platform',
     project4Title: 'Trust Mom',
     project4Desc: 'Positive Way Only',
+    m1Note: 'A worldwide network in every\u00A0language\nA channel to lift morale in\u00A0Israel',
+    trustMomNote: 'International organization\u00A0— the chosen representation of women and mothers in\u00A0Israel.\nA caring social network for mutual support, where community strength demands\u00A0fairness.',
+    moralForGoodNote: 'An app for contests and audience ratings across all\u00A0platforms.',
+    vvipNote: 'Exclusive\u00A0club',
+    membersOnly: 'Members\u00A0only',
+    comingSoon: 'Coming\u00A0soon',
     footer: '© 2026 Moral Together.'
   },
   he: {
     dir: 'rtl',
-    titleTag: 'Moral Together — מרכז פרויקטים',
+    titleTag: 'Moral Together\u00A0— מרכז פרויקטים',
     eyebrow: 'Moral Together',
     title: 'הפרויקטים שלנו',
     subtitle: 'שער צבעוני ונקי לפרויקטים, פלטפורמות דיגיטליות ויוזמות ציבוריות שנוצרו סביב Moral Together.',
@@ -29,11 +35,17 @@ const translations = {
     project3Desc: 'פלטפורמה פיננסית ותרומות',
     project4Title: 'Trust Mom',
     project4Desc: 'Positive Way Only',
+    m1Note: 'רשת עולמית בכל\u00A0השפות\nערוץ להרים את המורל\u00A0בישראל',
+    trustMomNote: 'ארגון בינלאומי\u00A0– נציגות נבחרת נשים ואמהות\u00A0בישראל.\nרשת חברתית דואגת לאכפתיות הדדית במינוף קהילתי המחייב\u00A0הוגנות.',
+    moralForGoodNote: 'אפליקציה לתחרויות ודירוג הצופים בכל\u00A0הפלטפורמות',
+    vvipNote: 'מועדון\u00A0יוקרתי',
+    membersOnly: 'לחברי מועדון\u00A0בלבד',
+    comingSoon: 'בקרוב',
     footer: '© 2026 Moral Together.'
   },
   ru: {
     dir: 'ltr',
-    titleTag: 'Moral Together — хаб проектов',
+    titleTag: 'Moral Together\u00A0— хаб проектов',
     eyebrow: 'Moral Together',
     title: 'Наши проекты',
     subtitle: 'Цветная и аккуратная страница со ссылками на выбранные проекты, сайты и публичные инициативы Moral Together.',
@@ -45,6 +57,12 @@ const translations = {
     project3Desc: 'Финансовая платформа и пожертвования',
     project4Title: 'Trust Mom',
     project4Desc: 'Positive Way Only',
+    m1Note: 'Мировая сеть на всех\u00A0языках\nКанал, поднимающий моральный дух в\u00A0Израиле',
+    trustMomNote: 'Международная\u00A0организация, избранное представительство женщин и матерей в\u00A0Израиле.\nСоциальная сеть взаимной заботы, где сила сообщества требует\u00A0справедливости.',
+    moralForGoodNote: 'Приложение для конкурсов и зрительских рейтингов на всех\u00A0платформах.',
+    vvipNote: 'Премиальный\u00A0клуб',
+    membersOnly: 'Только для членов\u00A0клуба',
+    comingSoon: 'Скоро',
     footer: '© 2026 Moral Together.'
   }
 };

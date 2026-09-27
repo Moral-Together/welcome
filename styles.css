@@ -227,6 +227,7 @@ body[dir="rtl"] h1 {
 }
 
 .feat {
+  container-type: inline-size;
   display: grid;
   grid-template-rows: 1fr auto;
   overflow: hidden;
@@ -247,11 +248,26 @@ body[dir="rtl"] h1 {
 }
 
 .feat .project-link {
+  /* at least square, and stretched when the neighbouring tile in the row is taller */
+  aspect-ratio: auto;
+  min-height: 100cqi;
   border: 0;
   border-radius: 0;
   box-shadow: none;
   opacity: 1;
   translate: none;
+}
+
+/* the logo fits inside the tile instead of setting its height */
+.feat .project-link {
+  position: relative;
+}
+
+.feat .project-logo {
+  position: absolute;
+  inset: 10px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
 }
 
 .feat .project-link:hover,
@@ -300,24 +316,109 @@ body[dir="rtl"] h1 {
 .soc.ig { background: linear-gradient(45deg, #f9ce34, #ee2a7b 55%, #6228d7); }
 .soc.fb { background: #1877f2; }
 
-.links {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  width: 100%;
-  direction: ltr;
+.feat-note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 10px 12px;
+  border-top: 1px solid rgba(229, 237, 245, 0.92);
+  background: rgba(247, 251, 255, 0.7);
+  text-align: center;
 }
 
-body.content-ready .feat,
-body.content-ready .links .project-link {
+/* text under a social strip continues the same band, without a second divider */
+.socstrip + .feat-note {
+  border-top: 0;
+  padding-top: 2px;
+}
+
+.feat-note p {
+  margin: 0;
+  color: var(--label);
+  font-size: 16px;
+  line-height: 1.4;
+  white-space: pre-line;
+  /* avoid a lone word on the last line; the strings also glue their last two words */
+  text-wrap: pretty;
+  /* the grid is forced to ltr, so let each line take its direction from its own text */
+  unicode-bidi: plaintext;
+}
+
+.feat-note .feat-members {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* a project without a site yet: grey, still, and not clickable */
+.feat.is-soon {
+  opacity: 1;
+  translate: none;
+  transition: none;
+  background: #f4f5f7;
+}
+
+body.content-ready .feat.is-soon {
+  animation: none;
+}
+
+.feat.is-soon:hover {
+  transform: none;
+  border-color: rgba(229, 237, 245, 0.92);
+  box-shadow: rgba(23, 23, 23, 0.055) 0 8px 22px;
+}
+
+.feat.is-soon .project-link {
+  background: #eef0f3;
+  cursor: default;
+}
+
+.feat.is-soon .project-logo {
+  filter: grayscale(1);
+  opacity: 0.45;
+}
+
+.feat.is-soon .feat-note {
+  background: #eef0f3;
+}
+
+.feat.is-soon .feat-note p {
+  color: #606a78;
+}
+
+.soon-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #5f6b7a;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* an odd tile left alone in the last row sits in the middle */
+.featured .feat:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc(50% - 6px);
+}
+
+body.content-ready .feat {
   animation: project-reveal 480ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 body.content-ready .featured .feat:nth-child(1) { animation-delay: 100ms; }
 body.content-ready .featured .feat:nth-child(2) { animation-delay: 180ms; }
-body.content-ready .links .project-link:nth-child(1) { animation-delay: 280ms; }
-body.content-ready .links .project-link:nth-child(2) { animation-delay: 360ms; }
-body.content-ready .links .project-link:nth-child(3) { animation-delay: 440ms; }
+body.content-ready .featured .feat:nth-child(3) { animation-delay: 260ms; }
+body.content-ready .featured .feat:nth-child(4) { animation-delay: 340ms; }
+body.content-ready .featured .feat:nth-child(5) { animation-delay: 420ms; }
+body.content-ready .featured .feat:nth-child(6) { animation-delay: 500ms; }
+body.content-ready .featured .feat:nth-child(7) { animation-delay: 580ms; }
 
 @keyframes project-reveal {
   to {
@@ -474,6 +575,24 @@ body.content-ready .links .project-link:nth-child(3) { animation-delay: 440ms; }
   }
 }
 
+/* below this width two columns get too narrow for the descriptions */
+@media (max-width: 640px) {
+  .featured {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* one project per row, so the tile is wide instead of square */
+  .feat .project-link {
+    min-height: 62.5cqi;
+  }
+
+  .featured .feat:last-child:nth-child(odd) {
+    width: 100%;
+  }
+}
+
 @media (max-width: 520px) {
   .page-shell {
     justify-content: flex-start;
@@ -501,28 +620,13 @@ body.content-ready .links .project-link:nth-child(3) { animation-delay: 440ms; }
     margin-bottom: 14px;
   }
 
-  .featured {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-
   .feat {
     border-radius: 16px;
-  }
-
-  /* one featured project per row, so the tile is wide instead of square */
-  .feat .project-link {
-    aspect-ratio: 16 / 10;
   }
 
   .socstrip {
     gap: 8px;
     padding: 11px 14px;
-  }
-
-  .links {
-    gap: 10px;
   }
 
   .project-link {
@@ -532,5 +636,16 @@ body.content-ready .links .project-link:nth-child(3) { animation-delay: 440ms; }
 
   .project-logo {
     border-radius: 12px;
+  }
+}
+
+/* the smallest phones: give the descriptions a little more line width */
+@media (max-width: 360px) {
+  .page-shell {
+    padding-inline: 10px;
+  }
+
+  .profile-card {
+    padding-inline: 12px;
   }
 }
