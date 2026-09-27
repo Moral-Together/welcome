@@ -17,20 +17,26 @@ https://moral-together.github.io/welcome/
 ## Current features
 
 - Colorful Linktree-style portfolio hub for Moral Together.
-- Language switcher with English as default, plus Hebrew and Russian.
-- Mobile-first responsive layout.
-- Splash screen on load.
-- Two featured projects at the top, each with its own social strip inside the tile:
-  - M1 Radio (m1-radio.com)
-  - Stage of Stars (stageofstars.com)
-- Three project tiles below, in one row:
-  - Moral for Good
-  - Zuzim.cash
-  - Trust Mom
-- On phones the two featured projects stack full width; the three tiles stay in one row.
-- Social icons come from Font Awesome brands (CDN).
+- Language switcher: Hebrew, English, Russian. Opens in the language picked earlier by hand, else the browser language if it is one of the three, else Hebrew.
+- Short opening splash (about a second), then the tiles fade in.
+- Mobile-first responsive layout: one column on phones and small windows (up to 640px), two columns above.
+- Every project is a tile with its logo; below the logo either a social strip or a short description from the brief.
+- Projects without a site yet are greyed out with a "Coming soon" badge (`.feat.is-soon`); give the tile a link and drop the class when the site is ready.
+- Social icons are inline SVG (Font Awesome Free brand icons, CC BY 4.0) — no icon font to download.
+- Link previews for WhatsApp / Telegram / Facebook / X via Open Graph tags and `og-image.jpg`.
+- Font: Rubik (same family as the main site), served from `fonts/`, not Google Fonts: the page makes no third-party requests.
+- Footer links to the main site's accessibility statement and privacy policy (same operator), plus the support email.
+- Accessibility (IS 5568 / WCAG AA), matching what the main site's statement promises for its subdomains:
+  skip link, visible keyboard focus, screen-reader labels in the page language, links that open a new tab say so,
+  and the same Open-Nagish widget as the main site (`a11y-widget.js`, `vendor/`, loaded when the browser is idle).
+  Last checked with axe-core on 2026-09-27 in all three languages: no violations. If the page changes,
+  re-check it and keep the main site's accessibility statement in step.
 
-Replace `href="#"` in `index.html` with final project URLs when they are ready.
+## Images
+
+Pages load the `.webp` files. The `.png` files next to them are the full-size sources:
+when a logo changes, replace the `.png` and export a new `.webp` at about twice its on-screen size
+(tile logos ~440px, header logo ~760px wide), then bump the `?v=` numbers in `index.html` if needed.
 
 ## Structure
 
@@ -38,8 +44,14 @@ Replace `href="#"` in `index.html` with final project URLs when they are ready.
 index.html
 styles.css
 script.js
-MoralTogetherLogo.png
-logos/
+MoralTogetherLogo.webp / .png
+logos/            project logos (.webp served, .png sources)
+og-image.jpg      link preview image, 1200x630
+vendor/           Open-Nagish accessibility widget 1.1.5 (MIT)
+a11y-widget.js    loads and themes the widget
+fonts/            Rubik (Hebrew, Latin, Cyrillic), variable woff2
+favicon.ico, icon-192.png, apple-touch-icon.png
+robots.txt, sitemap.xml
 CNAME
 .nojekyll
 ```
