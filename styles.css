@@ -539,6 +539,70 @@ html[lang="en"] .feat-note p {
   line-height: 1;
 }
 
+/* A project with a site: phones have no hover, so the tile shows it is a link at rest, with a frame
+   in the project's colour and a round arrow in the corner where "coming soon" tiles carry their badge.
+   The badge colours are darker than the brand tones so the white arrow stays above 3:1; on the
+   yellow the arrow is dark instead. */
+.feat:has(.tone-pink) { --go: #d11a55; --go-ink: #fff; }
+.feat:has(.tone-sun) { --go: #ffc53d; --go-ink: #102033; }
+.feat:has(.tone-violet) { --go: #5b4bf0; --go-ink: #fff; }
+
+.feat:has(> a.project-link),
+.feat:has(> a.project-link):hover,
+.feat:has(> a.project-link):focus-within {
+  border: 2px solid color-mix(in srgb, var(--go), white 45%);
+}
+
+.go-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--go);
+  color: var(--go-ink);
+  box-shadow: 0 6px 14px -6px color-mix(in srgb, var(--go), black 30%);
+  transition: transform 160ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.go-icon {
+  width: 22px;
+  height: 22px;
+}
+
+/* two soft rings pulse out of the badge once the tiles have appeared, then it stays still */
+.go-badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--go), transparent 30%);
+}
+
+body.content-ready .go-badge::after {
+  animation: go-ring 1.6s cubic-bezier(0.22, 1, 0.36, 1) 500ms 2;
+}
+
+@keyframes go-ring {
+  to {
+    box-shadow: 0 0 0 14px transparent;
+  }
+}
+
+.project-link:hover .go-badge,
+.project-link:focus-visible .go-badge {
+  transform: scale(1.08) rotate(-8deg);
+}
+
+/* touch feedback: the badge sinks while the finger is on the tile */
+.project-link:active .go-badge {
+  transform: scale(0.9);
+}
+
 /* an odd tile left alone in the last row sits in the middle */
 .featured .feat:last-child:nth-child(odd) {
   grid-column: 1 / -1;
@@ -772,6 +836,12 @@ main:focus-visible {
     transition: none;
   }
 
+  .go-badge,
+  body.content-ready .go-badge::after {
+    transition: none;
+    animation: none;
+  }
+
   .splash {
     transition: none;
   }
@@ -779,6 +849,47 @@ main:focus-visible {
   .splash.is-loading .splash-bar-fill {
     animation: none;
     width: 100%;
+  }
+}
+
+/* Computers: a wider card with three columns, so the six projects stand in two rows and the page
+   fits one screen instead of a phone-width column. */
+@media (min-width: 1024px) {
+  .profile-card {
+    width: min(100%, 1000px);
+  }
+
+  /* the rows run right to left (M1 Radio on the right) in every language; inside a tile everything
+     keeps the left-to-right layout the phone uses, so the social icons stay in the same order */
+  .featured {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    direction: rtl;
+  }
+
+  .feat {
+    direction: ltr;
+  }
+
+  /* wide rather than square, or two rows would not fit the screen */
+  .feat .project-link {
+    min-height: 58cqi;
+  }
+
+  .page-shell {
+    padding-top: 32px;
+  }
+
+  .language-switcher {
+    margin-bottom: 8px;
+  }
+
+  .hero {
+    padding-bottom: 20px;
+  }
+
+  .brand-link {
+    margin-bottom: 8px;
   }
 }
 
