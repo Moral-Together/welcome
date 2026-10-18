@@ -220,7 +220,8 @@ body {
   padding: 4px 6px 26px;
 }
 
-/* The header logo links to the main site. On hover or keyboard focus a rainbow border draws
+/* The header logo links to the main site. At rest it sits in a light violet frame with the same
+   "click" pill as the project tiles, centred on the frame's bottom edge. On hover or keyboard focus a rainbow border draws
    itself round it (four strokes, from the top centre and the bottom centre, meeting at the middle
    of each side) while a soft brand gradient fades in behind. The sweep is an animatable custom
    property driving a conic mask. */
@@ -235,22 +236,25 @@ body {
   isolation: isolate;
   display: inline-block;
   max-width: 100%;
-  margin-block: 0 18px;
-  padding: 12px 20px;
+  margin-block: 0 40px;
+  padding: 12px 20px 26px;
+  border: 2px solid color-mix(in srgb, #6d5dfc, white 62%);
   border-radius: 22px;
+  --go: #5b4bf0;
+  --go-ink: #fff;
 }
 
 /* soft gradient behind the logo */
 .brand-link::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -2px;
   z-index: -1;
   border-radius: inherit;
   background: linear-gradient(120deg,
     rgba(109, 93, 252, 0.06), rgba(43, 145, 223, 0.05) 30%,
     rgba(21, 190, 83, 0.045) 55%, rgba(255, 197, 61, 0.07) 78%, rgba(234, 34, 97, 0.055));
-  opacity: 0;
+  opacity: 0.75;
   transition: opacity 350ms ease;
 }
 
@@ -259,7 +263,7 @@ body {
   --logo-sweep: 0deg;
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -2px;
   border: 2px solid transparent;
   border-radius: inherit;
   background: conic-gradient(from 0deg, #6d5dfc, #2b91df, #15be53, #ffc53d, #ff9b3d, #ea2261, #6d5dfc) border-box;
@@ -291,6 +295,24 @@ body {
   --logo-sweep: 360deg;
   opacity: 1;
   transition: --logo-sweep 450ms cubic-bezier(0.3, 0.7, 0.4, 1), opacity 0s;
+}
+
+/* the pill hangs half outside the frame, in the middle of its bottom edge */
+.brand-link .brand-go {
+  top: auto;
+  right: auto;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.brand-link:hover .brand-go,
+.brand-link:focus-visible .brand-go {
+  transform: translate(-50%, 50%) scale(1.06);
+}
+
+.brand-link:active .brand-go {
+  transform: translate(-50%, 50%) scale(0.9);
 }
 
 /* the drawn border already shows keyboard focus */
@@ -540,7 +562,7 @@ html[lang="en"] .feat-note p {
 }
 
 /* A project with a site: phones have no hover, so the tile shows it is a link at rest, with a frame
-   in the project's colour and a round arrow in the corner where "coming soon" tiles carry their badge.
+   in the project's colour and a "click" pill with an arrow in the corner where "coming soon" tiles carry their badge.
    The badge colours are darker than the brand tones so the white arrow stays above 3:1; on the
    yellow the arrow is dark instead. */
 .feat:has(.tone-pink) { --go: #d11a55; --go-ink: #fff; }
@@ -558,20 +580,29 @@ html[lang="en"] .feat-note p {
   top: 10px;
   right: 10px;
   z-index: 1;
-  display: grid;
-  place-items: center;
-  width: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   height: 44px;
-  border-radius: 50%;
+  padding-inline: 14px 11px;
+  border-radius: 999px;
   background: var(--go);
   color: var(--go-ink);
   box-shadow: 0 6px 14px -6px color-mix(in srgb, var(--go), black 30%);
   transition: transform 160ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.go-text {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .go-icon {
-  width: 22px;
-  height: 22px;
+  flex: none;
+  width: 20px;
+  height: 20px;
 }
 
 /* two soft rings pulse out of the badge once the tiles have appeared, then it stays still */
@@ -595,7 +626,7 @@ body.content-ready .go-badge::after {
 
 .project-link:hover .go-badge,
 .project-link:focus-visible .go-badge {
-  transform: scale(1.08) rotate(-8deg);
+  transform: scale(1.06);
 }
 
 /* touch feedback: the badge sinks while the finger is on the tile */
@@ -889,7 +920,7 @@ main:focus-visible {
   }
 
   .brand-link {
-    margin-bottom: 8px;
+    margin-bottom: 30px;
   }
 }
 
